@@ -103,11 +103,31 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Setup Remote Desktop for non-administrative users on client-1</h2>
 <ol>
   <li>Open system settings > Remote desktop > Select users that can remotely access this PC > enter Domain Users
-
+    
+![configure-ad-20](https://github.com/user-attachments/assets/96111507-55a2-4a8d-a0bd-ea672fd958bc)
 ![configure-ad-21](https://github.com/user-attachments/assets/7e6e3285-8ba4-4675-97c3-7199031ce271)
 ![configure-ad-22](https://github.com/user-attachments/assets/84a16f9e-e6b4-46b6-a17c-be2b94018310)
-
-
   </li>
 </ol>
+
+<p>Summary: This will allow any user from dc-1 active directory to log into client-1</p>
+
+<h2>Create additional users</h2>
+<ol>
+  <li>Login to dc-1 as jane_admini</li>
+  <li>Open PowerShell_ise as an administrator</li>
+  <li>Create a new file and paste the <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">script</a>
+  </li>
+  <li>Running the script will generate new users
+    
+![configure-ad-23](https://github.com/user-attachments/assets/d4a7bdad-f00c-4475-91d4-15c2429c3d2c)
+https://github.com/user-attachments/assets/c60222a7-dde9-4aa6-a394-72202d08f418
+  </li>
+  <li>Select a random user from dc-1 Active Directory to log into client-1
+  
+![configure-ad-24](https://github.com/user-attachments/assets/416f5653-2a73-4a8f-a906-158ea0f22351)
+  </li>
+
+</ol>
+
 <br />
