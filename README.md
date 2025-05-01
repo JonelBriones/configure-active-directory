@@ -24,23 +24,20 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 <ol>
-  <li>Create a Resource Group named "Active-Directory-Lab".</li>
-  <li>Create a Virtaul Network named "Active-Directory-VNet".</li>
-  <li>Create a Domain Controller VM named "dc-1" running windows server 2022.</li>
-  <li>Configure dc-1 private ip address from dynamic to static.
-    
- 
+  <li>Create a Resource Group named "Active-Directory-Lab"</li>
+  <li>Create a Virtual Network named "Active-Directory-VNet"</li>
+  <li>Create a Domain Controller VM named "dc-1" running windows server 2022</li>
+  <li>Configure dc-1 private ip address from dynamic to static
 
+![configure-ad-47](https://github.com/user-attachments/assets/b78fb7fb-fd18-446d-9d97-5b2a51258924)
   </li>
   <li>To test connectivity, disable dc-1's windows firewall
-  
-    add pic
   </li>
 </ol>
 
 <h2>Setup Client-1</h2>
 <ol>
-  <li>Create a virtual machine named "client-1".</li>
+  <li>Create a virtual machine named "client-1"</li>
   <li>Update client-1's dns server to dc-1's private ip address
     
    ![configure-ad-1](https://github.com/user-attachments/assets/f1431541-f4de-43c7-867e-343bf132ac9b)
@@ -126,8 +123,40 @@ https://github.com/user-attachments/assets/c60222a7-dde9-4aa6-a394-72202d08f418
   <li>Select a random user from dc-1 Active Directory to log into client-1
   
 ![configure-ad-24](https://github.com/user-attachments/assets/416f5653-2a73-4a8f-a906-158ea0f22351)
+![configure-ad-26](https://github.com/user-attachments/assets/a6215049-5975-42f6-a093-d0189298b2d6)
+![configure-ad-27](https://github.com/user-attachments/assets/be9fd835-6ac3-4b0b-bd99-3b3367d1aea3)
   </li>
+</ol>
+<p>Summary: We generated random users to simulate a real work place environment. We can now manage user's password, ability to disable/enable accounts, etc.</p>
 
+<h2>Manage user password lockout with Group Policy Management</h2>
+<ol>
+  <li>Open Group Policy Management, Forest: mydomain.com > mydomain.com > right click Default Domain Policy and select edit</li>
+<li>Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy > Account lockout threshhold
+
+![configure-ad-30](https://github.com/user-attachments/assets/1bfff9c3-9a74-4c97-b9cd-5257bdbdc541)
+![configure-ad-31](https://github.com/user-attachments/assets/46ae407e-96de-4a1c-adff-04495ac01530)
+</li>
+<li>Login into client-1 as jane_admin</li>
+<li>Open PowerShell and run "gpupdate /force"
+  
+![configure-ad-33](https://github.com/user-attachments/assets/d4e6fc23-f864-4d68-8688-6cee03c1edba)
+![configure-ad-34](https://github.com/user-attachments/assets/c956368f-5a69-463b-85b9-08645a142c29)
+
+</li>
+<li>We can unlock by selecting user properties Account tab or right click user account and reset password & unlock account
+  
+![configure-ad-36](https://github.com/user-attachments/assets/7d6f4e37-c183-40df-8ea8-5892814673a4)
+![configure-ad-38](https://github.com/user-attachments/assets/374e65fd-57c1-4e99-af67-c2eafa5c6cd2)
+![configure-ad-39](https://github.com/user-attachments/assets/726dfc75-57ab-452a-8a3b-e00efff12cc8)
+</li>
+
+<p>Summary: This will enable a password lockouts when the number of failed attempts reaches the threshold value</p>
 </ol>
 
-<br />
+<h2>Observing Logs</h2>
+<li>Open Event Viewer in client-1 as jane_admin or run as administrator using jane_admin</li>
+<li>Windows Logs > Security, we can view all user login activity
+  
+![configure-ad-46](https://github.com/user-attachments/assets/1d1b4574-7663-4409-a8b0-cc879c77daa4)
+</li>
