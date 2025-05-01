@@ -111,7 +111,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Create additional users</h2>
 <ol>
-  <li>Login to dc-1 as jane_admini</li>
+  <li>Login to dc-1 as jane_admin</li>
   <li>Open PowerShell_ise as an administrator</li>
   <li>Create a new file and paste the <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">script</a>
   </li>
@@ -131,10 +131,13 @@ https://github.com/user-attachments/assets/c60222a7-dde9-4aa6-a394-72202d08f418
 
 <h2>Manage user password lockout with Group Policy Management</h2>
 <ol>
-  <li>Open Group Policy Management, Forest: mydomain.com > mydomain.com > right click Default Domain Policy and select edit</li>
+  <li>Open Group Policy Management, Forest: mydomain.com > Domains > mydomain.com > right click Default Domain Policy and select edit</li>
 <li>Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy > Account lockout threshhold
 
 ![configure-ad-30](https://github.com/user-attachments/assets/1bfff9c3-9a74-4c97-b9cd-5257bdbdc541)
+</li>
+<li>Updating lockout threshold to 5 attempts
+
 ![configure-ad-31](https://github.com/user-attachments/assets/46ae407e-96de-4a1c-adff-04495ac01530)
 </li>
 <li>Login into client-1 as jane_admin</li>
