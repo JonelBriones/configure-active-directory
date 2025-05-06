@@ -65,7 +65,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>_EMPLOYEES</li>
     <li>_ADMIN</li>
-    <li>_ADMIN</li>
+    <li>_CLIENTS</li>
   </ul>
     
   ![configure-ad-10](https://github.com/user-attachments/assets/7a8aae16-8b4d-4eaf-845a-73ef48f1d551)
@@ -127,7 +127,7 @@ https://github.com/user-attachments/assets/c60222a7-dde9-4aa6-a394-72202d08f418
 ![configure-ad-27](https://github.com/user-attachments/assets/be9fd835-6ac3-4b0b-bd99-3b3367d1aea3)
   </li>
 </ol>
-<p>Summary: We generated random users to simulate a real work place environment. We can now manage user's password, ability to disable/enable accounts, etc.</p>
+<p>Summary: We generated random users to simulate a real workplace environment. We can now manage user's passwords and the ability to disable/enable accounts, etc.</p>
 
 <h2>Manage user password lockout with Group Policy Management</h2>
 <ol>
@@ -147,14 +147,14 @@ https://github.com/user-attachments/assets/c60222a7-dde9-4aa6-a394-72202d08f418
 ![configure-ad-34](https://github.com/user-attachments/assets/c956368f-5a69-463b-85b9-08645a142c29)
 
 </li>
-<li>We can unlock by selecting user properties Account tab or right click user account and reset password & unlock account
+<li>We can unlock by selecting the user properties Account tab or right-click the user account and reset password & unlock account
   
 ![configure-ad-36](https://github.com/user-attachments/assets/7d6f4e37-c183-40df-8ea8-5892814673a4)
 ![configure-ad-38](https://github.com/user-attachments/assets/374e65fd-57c1-4e99-af67-c2eafa5c6cd2)
 ![configure-ad-39](https://github.com/user-attachments/assets/726dfc75-57ab-452a-8a3b-e00efff12cc8)
 </li>
 
-<p>Summary: This will enable a password lockouts when the number of failed attempts reaches the threshold value</p>
+<p>Summary: This will enable password lockouts when the number of failed attempts reaches the threshold value</p>
 </ol>
 
 <h2>Observing Logs</h2>
